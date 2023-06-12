@@ -47,42 +47,77 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+/*
+### Step1:
+Start the module.
+
+### Step2:
+Declare the inputs and outputs along with the select lines according to the multiplexer and demultiplexer.
+
+### Step3:
+Use wire to assign intermediate outputs.
+
+### Step4:
+Use and,or and not gates to get the desired output.
+
+### Step5:
+End the module.
+
+### Step6:
+Generate RTL realization and timing diagrams.
+*/
 
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by:LOGESHWARI.P 
+RegisterNumber:212221230055 
 */
-
-
-
-
-
-
+## 4-1 MULTIPLEXER
+```
+module mux(i0, i1, i2, i3, s0, s1, y);
+input i0, i1, i2, i3, s0, s1;
+output y;
+wire p, q, r, s, s0c, s1c;
+not(s0c, s0);
+nor(s1c, s1);
+and(p, s0c, s1c, i0);
+and(q, s0c, s1, i1);
+and(r, s0, s1c, i2);
+and(s, s0, s1, i3);
+or(y, p, q, r, s);
+endmodule
+```
+## 1-4 DEMULTIPLEXER
+```
+module demux(y0, y1, y2, y3, s0, s1, i);
+input s0, s1, i;
+output y0, y1, y2, y3;
+wire s0c, s1c;
+nor(s0c, s0);
+nor(s1c, s1);
+and(y0, i, s0c, s1);
+and(y1, i, s0c, s1c);
+and(y2, i, s0, s1c);
+and(y3, i, s0, s1);
+endmodule
+```
 ### RTL LOGIC  
-
-
-
-
-
-
-
-
+## MULTIPLEXER
+![243906540-d243421e-e725-47ee-94dd-80bf262407d1](https://github.com/logeshwari2004/Exercise-07-Multiplexer-and-De-multiplexer/assets/94211349/fc1c6a57-4fc0-477f-8c13-10a68d1cf80f)
+## DEMULTIPLEXER
+![243906718-e6b00284-ee38-4943-9776-36a9c43f69cb](https://github.com/logeshwari2004/Exercise-07-Multiplexer-and-De-multiplexer/assets/94211349/27191879-3e36-4a63-80ad-b19ccdb49acc)
 ### TIMING DIGRAMS  
-
-
-
-
-
+## MULTIPLEXER
+![243906655-e5480f09-ae7e-439d-b20b-f8babe2cf601](https://github.com/logeshwari2004/Exercise-07-Multiplexer-and-De-multiplexer/assets/94211349/8554b7bd-0c06-427c-92d3-955eabcb1156)
+## DEMULTIPLEXER
+![243906768-0db4d348-e63e-4254-a28d-766e52afbf6e](https://github.com/logeshwari2004/Exercise-07-Multiplexer-and-De-multiplexer/assets/94211349/4f11c950-290e-4171-9896-3aa071abf0fd)
 ### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+## MULTIPLEXER
+![243906805-32e4f452-5b91-4855-a3c6-b59284cdfc40](https://github.com/logeshwari2004/Exercise-07-Multiplexer-and-De-multiplexer/assets/94211349/ef836912-18f2-46d9-aeae-0c9bba811198)
+## DEMULTIPLEXER
+![243906845-33b75f46-6e0b-4b08-b18b-cf6d409229bb](https://github.com/logeshwari2004/Exercise-07-Multiplexer-and-De-multiplexer/assets/94211349/594a2ff0-5aac-41b8-971a-f612ef1dd9e4)
+### RESULTS
+Thus the implementation of Multiplexer and Demultiplexer are verified.
